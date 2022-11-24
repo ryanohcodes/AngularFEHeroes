@@ -1,0 +1,26 @@
+<!-- If a hero exists, display everything within the div -->
+<div *ngIf="hero">
+<!-- as defined in the TS, hero is modelled with a name, firstName, lastName, and a place -->
+<h2>{{hero.name}}</h2>
+<div>
+    <!-- Name:
+    ngModel, is angular's way for two-way data binding, which means the corresponding data will update in real time. The placeHolder is what is displayed if empty-->
+    <input [(ngModel)]="hero.name" placeHolder="Name">
+</div>
+<div>
+    FirstName:
+    <input [(ngModel)]="hero.firstName" placeHolder="First Name">
+</div>
+<div>
+    LastName:
+    <input [(ngModel)]="hero.lastName" placeHolder="Last Name">
+</div>
+<div>
+    Place:
+    <input [(ngModel)]="hero.place" placeHolder="place">
+</div>
+<!-- onclick, call this function with this argument.  -->
+    <button (click)="updateHero(hero)" *ngIf="hero.id">Save</button>
+    <button (click)="deleteHero(hero)" *ngIf="hero.id">Delete</button>
+    <button (click)="createHero(hero)" *ngIf="!hero.id">Create</button>
+</div>
